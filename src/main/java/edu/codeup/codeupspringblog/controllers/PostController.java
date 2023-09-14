@@ -2,37 +2,34 @@ package edu.codeup.codeupspringblog.controllers;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/posts")
 public class PostController {
 
-    @GetMapping("/index")
+    @GetMapping("")
     @ResponseBody
     public String index() {
-        return "posts/index";
+        return "posts index page";
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public String show() {
-        return "posts/show";
+    public String show(@PathVariable long id) {
+        return String.format("view an individual post with id of %s", id);
     }
 
     @GetMapping("/create")
     @ResponseBody
     public String create() {
-        return "posts/create";
+        return "view the form for creating a post";
     }
 
-    @GetMapping("/create")
-    @RequestMapping("/create")
+    @PostMapping("/create")
     @ResponseBody
-    public String insert() {
-        return "posts/insert";
+    public String createNewPost(@RequestParam String title, @RequestParam String body) {
+        return String.format("create a new post with title of %s and body of %s", title, body);
     }
 
 }
