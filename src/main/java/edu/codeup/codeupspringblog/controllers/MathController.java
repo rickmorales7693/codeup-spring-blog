@@ -8,28 +8,32 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MathController {
 
-    @GetMapping("/add/3/and/4")
+    @GetMapping("/add/{num1}/and/{num2}")
     @ResponseBody
-    public String addThreeAndFour(int num1, int num2) {
-        return "7";
+    public String addThreeAndFour(@PathVariable int num1,@PathVariable int num2) {
+        int total = num1 + num2;
+        return String.format("%s + %s = %s", num1, num2, total);
     }
 
-    @GetMapping("/subtract/3/from/10")
+    @GetMapping("/subtract/{num1}/from/{num2}")
     @ResponseBody
-    public String subtractThreeFromTen() {
-        return "7";
+    public String subtractThreeFromTen(@PathVariable int num1, @PathVariable int num2) {
+        int total = num2 - num1;
+        return String.format("%s - %s = %s", num2, num1, total);
     }
 
-    @GetMapping("/multiply/4/and/5")
+    @GetMapping("/multiply/{num1}/and/{num2}")
     @ResponseBody
-    public String multiplyFourAndFive() {
-        return "20";
+    public String multiplyFourAndFive(@PathVariable int num1, @PathVariable int num2) {
+        int total = num1 * num2;
+        return String.format("%s * %s = %s", num1, num2, total);
     }
 
-    @GetMapping("/divide/6/by/3")
+    @GetMapping("/divide/{num1}/by/{num2}")
     @ResponseBody
-    public String divideSixByThree() {
-        return "2";
+    public String divideSixByThree(@PathVariable int num1, @PathVariable int num2) {
+        int total = num1 / num2;
+        return String.format("%s / %s = %s", num1, num2, total);
     }
 
 
