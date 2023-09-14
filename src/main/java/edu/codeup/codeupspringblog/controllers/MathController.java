@@ -10,7 +10,7 @@ public class MathController {
 
     @GetMapping("/add/3/and/4")
     @ResponseBody
-    public String addThreeAndFour() {
+    public String addThreeAndFour(int num1, int num2) {
         return "7";
     }
 
