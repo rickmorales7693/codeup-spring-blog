@@ -10,28 +10,28 @@ public class MathController {
 
     @GetMapping("/add/{num1}/and/{num2}")
     @ResponseBody
-    public String addThreeAndFour(@PathVariable int num1,@PathVariable int num2) {
+    public String addNumbers(@PathVariable int num1, @PathVariable int num2) {
         int total = num1 + num2;
         return String.format("%s + %s = %s", num1, num2, total);
     }
 
     @GetMapping("/subtract/{num1}/from/{num2}")
     @ResponseBody
-    public String subtractThreeFromTen(@PathVariable int num1, @PathVariable int num2) {
+    public String subtractNumbers(@PathVariable int num1, @PathVariable int num2) {
         int total = num2 - num1;
         return String.format("%s - %s = %s", num2, num1, total);
     }
 
     @GetMapping("/multiply/{num1}/and/{num2}")
     @ResponseBody
-    public String multiplyFourAndFive(@PathVariable int num1, @PathVariable int num2) {
+    public String multiplyNumbers(@PathVariable int num1, @PathVariable int num2) {
         int total = num1 * num2;
         return String.format("%s * %s = %s", num1, num2, total);
     }
 
     @GetMapping("/divide/{num1}/by/{num2}")
     @ResponseBody
-    public String divideSixByThree(@PathVariable int num1, @PathVariable int num2) {
+    public String divideNumbers(@PathVariable int num1, @PathVariable int num2) {
         int total = num1 / num2;
         return String.format("%s / %s = %s", num1, num2, total);
     }
