@@ -16,20 +16,20 @@ public class PostController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public String show(@PathVariable long id) {
-        return String.format("view an individual post with id of %s", id);
+    public String viewIndividualPost(@PathVariable long id) {
+        return "view an individual post";
     }
 
     @GetMapping("/create")
     @ResponseBody
-    public String create() {
+    public String showCreatePostView() {
         return "view the form for creating a post";
     }
 
     @PostMapping("/create")
     @ResponseBody
-    public String createNewPost(@RequestParam String title, @RequestParam String body) {
-        return String.format("create a new post with title of %s and body of %s", title, body);
+    public String createNewPost() {
+        return "create a new post";
     }
 
 }
